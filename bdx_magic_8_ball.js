@@ -16,8 +16,13 @@ function random(min, max) {
 var rAnswer = answer[random(min, max)];
 console.log(rAnswer);
 
-document.getElementById("answer").textContent = rAnswer;
 
+function flipBall() {
+  document.getElementById("answer").textContent = rAnswer;
+}
+
+var eL = document.getElementById("submit");
+eL.addEventListener("click", flipBall, true);
 
 // // TODO:
 //
