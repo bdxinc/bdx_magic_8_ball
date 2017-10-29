@@ -10,3 +10,28 @@ h1 {
   height: 345px;
   width: 345px;
 }
+
+#frontOfBall {
+  display: block;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#backOfBall {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#answer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#ball {
+  position: relative;
+}

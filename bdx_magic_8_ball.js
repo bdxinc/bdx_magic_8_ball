@@ -18,6 +18,9 @@ console.log(rAnswer);
 
 
 function flipBall() {
+  document.getElementById("frontOfBall").style.display = "none";
+  document.getElementById("backOfBall").style.display = "block";
+
   document.getElementById("answer").textContent = rAnswer;
 }
 
