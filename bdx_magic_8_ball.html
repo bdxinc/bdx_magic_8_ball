@@ -8,8 +8,14 @@
   <body>
     <div class="main">
       <h1>Magic 8-Ball</h1>
+      <div class="Error">
+        <p id="error">
+          <!-- error -->
+        </p>
+        <button id="confirm" type="button" name="Submit">Confirm?</button>
+      </div>
       <form class="form">
-        <input id="question" type="text" name="Question" value="" placeholder="Ask Me Anything...">
+        <input id="question" type="text" name="Question" value="" placeholder="Ask Me Anything..." required>
         <button id="submit" type="button" name="Submit">SUBMIT</button>
       </form>
       <br>

@@ -1,10 +1,10 @@
-var answer = ["I think that it will work out!",
-  "Maybe... maybe not",
-  "Probably not",
-  "Highly likely",
-  "It is certain!",
-  "I dont know about that",
-  "My sources say no"];
+var answer = ["Chance are you're doomed... but hopefully not!",
+  "I woudn't bet on you...",
+  "Maybe give up now",
+  "Consider it done!",
+  "No need to worry!!",
+  "I dont know anything.",
+  "Let's ask Little Kitty!?"];
 
 var min = 0;
 var max = answer.length;
@@ -23,6 +23,12 @@ function resetBall(){
 }
 
 
+function clearError() {
+	  document.getElementById("error").textContent = "";
+    document.getElementById("confirm").style.display = "none";
+}
+
+
 function flipBall() {
   var rAnswer = answer[random(min, max)];
   console.log(rAnswer);
@@ -30,29 +36,36 @@ function flipBall() {
   var questionEl = document.getElementById("question");
   var answerEl = document.getElementById("answer");
 
-  document.getElementById("frontOfBall").style.display = "none";
-  document.getElementById("backOfBall").style.display = "block";
+  if(questionEl.value.endsWith("?") != true) {
+    document.getElementById("error").textContent = "Feed me a question! ---->> (\" ? \")";
+    document.getElementById("confirm").style.display = "inline";
+  
+    questionEl.value = "";
+  } else {
+    document.getElementById("frontOfBall").style.display = "none";
+    document.getElementById("backOfBall").style.display = "block";
 
-  document.getElementById("answer").textContent = rAnswer;
+    document.getElementById("answer").textContent = rAnswer;
 
-  questionEl.value = "";
+    questionEl.value = "";
 
-  window.setTimeout(resetBall, 3000);
+    window.setTimeout(resetBall, 6000);
+  }
 }
 
 
 var eL = document.getElementById("submit");
 eL.addEventListener("click", flipBall, true);
 
-
-
+var errorEl = document.getElementById("confirm");
+errorEl.addEventListener("click", clearError, true);
 
 
 
 // // TODO:
 //
-// 1.setup responses
+// 1.update responses - creative**
 //
-// 2.math.random
+// 2. css card flip transition
 //
-// 3.print/alert
+// 3.validation & ?(regex stuff)
