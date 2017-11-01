@@ -15,11 +15,11 @@ function random(min, max) {
 
 
 function resetBall(){
+  var containerEl = document.getElementsByClassName("flip-container")[0];
 
   document.getElementById("answer").textContent = "";
 
-  document.getElementById("frontOfBall").style.display = "block";
-  document.getElementById("backOfBall").style.display = "none";
+  containerEl.classList.remove("hover");
 }
 
 
@@ -33,17 +33,18 @@ function flipBall() {
   var rAnswer = answer[random(min, max)];
   console.log(rAnswer);
 
+  var containerEl = document.getElementsByClassName("flip-container")[0];
   var questionEl = document.getElementById("question");
   var answerEl = document.getElementById("answer");
 
   if(questionEl.value.endsWith("?") != true) {
     document.getElementById("error").textContent = "Feed me a question! ---->> (\" ? \")";
     document.getElementById("confirm").style.display = "inline";
-  
+
     questionEl.value = "";
   } else {
-    document.getElementById("frontOfBall").style.display = "none";
-    document.getElementById("backOfBall").style.display = "block";
+    containerEl.classList.add("hover");
+
 
     document.getElementById("answer").textContent = rAnswer;
 

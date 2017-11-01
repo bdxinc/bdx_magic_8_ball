@@ -5,24 +5,115 @@
 h1, p {
   font-family: sans-serif;
 }
+/*
+.flip-container {
+  perspective: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-#frontOfBall, #backOfBall {
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+
+#ball {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+ .frontOfBall, .backOfBall {
   height: 345px;
   width: 345px;
 }
 
-#frontOfBall {
+.frontOfBall, .backOfBall {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.frontOfBall {
   display: block;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  z-index: 2;
+  transform: rotateY(0deg);
 }
 
-#backOfBall {
+.backOfBall {
   display: none;
   margin-left: auto;
   margin-right: auto;
-}
+  transform: rotateY(180deg);
+}*/
+
+
+ /*test */
+
+
+ /* entire container, keeps perspective */
+ .flip-container {
+ 	perspective: 1000px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ 	/* flip the pane when hovered */
+ 	.flip-container:hover .flipper, .flip-container.hover .flipper {
+ 		transform: rotateY(180deg);
+ 	}
+
+ .flip-container, .front, .back {
+ 	width: 345px;
+ 	height: 345px;
+ }
+
+ /* flip speed goes here */
+ .flipper {
+ 	transition: 0.6s;
+ 	transform-style: preserve-3d;
+
+ 	position: relative;
+ }
+
+ /* hide back of pane during swap */
+ .front, .back {
+ 	backface-visibility: hidden;
+
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ }
+
+ /* front pane, placed above back */
+ .front {
+ 	z-index: 2;
+ 	/* for firefox 31 */
+ 	transform: rotateY(0deg);
+ }
+
+ /* back, initially hidden pane */
+ .back {
+ 	transform: rotateY(180deg);
+ }
+
+ img {
+    width: 345px;
+  	height: 345px;
+ }
+
+
+
+
+
+/*test*/
+
 
 #answer {
   position: absolute;
@@ -30,10 +121,6 @@ h1, p {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-}
-
-#ball {
-  position: relative;
 }
 
 .Error {
